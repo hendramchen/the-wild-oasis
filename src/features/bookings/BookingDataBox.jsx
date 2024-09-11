@@ -1,28 +1,27 @@
 import styled from "styled-components";
-import { format, isToday } from "date-fns";
+import { format } from "date-fns";
+
+import { box } from "styles/styles";
+import { formatDistanceFromNow } from "utils/helpers";
+import { isToday } from "date-fns/esm";
+import { formatCurrency } from "utils/helpers";
 import {
   HiOutlineChatBubbleBottomCenterText,
   HiOutlineCheckCircle,
   HiOutlineCurrencyDollar,
   HiOutlineHomeModern,
 } from "react-icons/hi2";
-
-import DataItem from "../../ui/DataItem";
-import { Flag } from "../../ui/Flag";
-
-import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
+import DataItem from "ui/DataItem";
+import { Flag } from "ui/Flag";
 
 const StyledBookingDataBox = styled.section`
-  /* Box */
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
-  border-radius: var(--border-radius-md);
-
+  ${box} /* padding: 3.2rem 4rem; */
   overflow: hidden;
 `;
 
 const Header = styled.header`
   background-color: var(--color-brand-500);
+  /* padding: 2.4rem 4rem; */
   padding: 2rem 4rem;
   color: #e0e7ff;
   font-size: 1.8rem;
@@ -59,6 +58,7 @@ const Guest = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  /* font-size: 1.8rem; */
   margin-bottom: 1.6rem;
   color: var(--color-grey-500);
 
@@ -101,7 +101,6 @@ const Footer = styled.footer`
   text-align: right;
 `;
 
-// A purely presentational component
 function BookingDataBox({ booking }) {
   const {
     created_at,
